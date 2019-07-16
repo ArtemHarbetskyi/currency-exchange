@@ -2,7 +2,10 @@
 require_once 'vendor/autoload.php';
 
 $obj = new \ArtemHarbetskyi\CurrencyExchange();
-$obj->setCurrency('usd');
+$obj->setCurrency('GYD');
 
-echo $obj->make()
-    ->today(true);
+echo '<pre>';
+var_dump(
+    $obj->make()->today()
+);
+echo '</pre>';
