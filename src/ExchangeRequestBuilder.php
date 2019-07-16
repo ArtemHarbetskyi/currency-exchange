@@ -2,33 +2,23 @@
 
 namespace ArtemHarbetskyi;
 
-
 use ArtemHarbetskyi\Lib\Curl;
 
 class ExchangeRequestBuilder extends CurrencyExchange
 {
     private $exchange;
 
-    public function __construct(CurrencyExchange $exchange)
+    public function __construct($exchange)
     {
         $this->exchange = $exchange;
     }
 
 
-    /*
-     * Курс на дату по валюті (код валюти літерний, регістр значення не має):
-     */
-    public function today($only_rate = false)
+    public function sendRequest()
     {
-        if ($only_rate != false) {
-            $request = Curl::get($this->exchange->options['site'] . 'NBUStatService/v1/statdirectory/exchange?valcode=' . $this->exchange->currency . '&json');
-
-            return json_decode($request)[0]->rate ? json_decode($request)[0]->rate : 0;
-        }
-
-        $request = Curl::get($this->exchange->options['site'] . 'NBUStatService/v1/statdirectory/exchange?valcode=' . mb_strtoupper($this->exchange->currency) . '&json');
-
-        return json_decode($request);
+        $response = Curl::get($this->exchange->url_request);
+        // decode to normalize
+        return json_decode($response);
     }
 
 
