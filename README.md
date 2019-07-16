@@ -1,7 +1,7 @@
 Currency-Exchange NBU ``` 0.0.1 beta``` 
 =====================
 
-### Install
+### Install    
 
 ```composer require artem-harbetskyi/currency-exchange```  
 
