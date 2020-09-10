@@ -1,15 +1,21 @@
-Currency-Exchange NBU ``` 0.0.2 beta``` 
+UAH - Currency-Exchange NBU ``` 0.0.2 beta``` 
 =====================
 
 * added fromDate
 
  ```
-$obj = (new CurrencyExchange())->setCurrency('usd')
-    ->today()
-    ->toJson()
-    ->make()
-    ->sendRequest();
+// make new object
+$obj = (new CurrencyExchange())
+           ->setCurrency('USD')
+           ->today()
+           ->toJson()
+           ->make();
    ``` 
+
+```
+// make result
+$result = Currency::get($objCurrency);
+```
  
 #### Country Currency Codes ```->setCurrency($code)```
 *  USD	United States Dollar

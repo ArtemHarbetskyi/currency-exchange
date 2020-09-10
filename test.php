@@ -1,14 +1,21 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$obj = (new \ArtemHarbetskyi\CurrencyExchange())->setCurrency('usd')
+$objCurrency = (new \ArtemHarbetskyi\CurrencyExchange())
+    ->setCurrency('USD')
     ->today()
     ->toJson()
-    ->make()
-    ->sendRequest();
+    ->make();
+
+//var_dump($objCurrency);
+$result = \ArtemHarbetskyi\Currency::get($objCurrency);
+var_dump($result);
+
+
+
 
 echo '<pre>';
-var_dump(
-    $obj
-);
+//var_dump(
+//    $result
+//);
 echo '</pre>';

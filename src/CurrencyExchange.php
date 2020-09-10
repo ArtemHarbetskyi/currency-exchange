@@ -2,7 +2,7 @@
 
 namespace ArtemHarbetskyi;
 
-use ArtemHarbetskyi\Additional\tRequestExchange; 
+use ArtemHarbetskyi\Additional\tRequestExchange;
 use Exception;
 
 /**
@@ -20,9 +20,12 @@ class CurrencyExchange
     use tRequestExchange;
 
 
-    protected $options;
+    public $options;
 
-    protected $currency;
+    public $currency;
+
+    public $url_request;
+
 
     /*
      * Require file options
@@ -31,7 +34,7 @@ class CurrencyExchange
     {
         try {
 
-            if (!file_exists('./src/options.php')) {
+            if (!file_exists('./options.php')) {
                 throw new \Exception('Not found option file');
             }
 
@@ -51,18 +54,18 @@ class CurrencyExchange
             if (!is_string($currency)) {
                 throw new Exception('setCurrency is string!');
             }
+
             $this->currency = $currency;
             return $this;
-
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
-    }
-  
-    public function make()
-    {
-        return new ExchangeRequestBuilder($this);
+
     }
 
+    public function make()
+    {
+        return $this;
+    }
 
 }

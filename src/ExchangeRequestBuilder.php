@@ -6,19 +6,13 @@ use ArtemHarbetskyi\Lib\Curl;
 
 class ExchangeRequestBuilder extends CurrencyExchange
 {
-    private $exchange;
 
-    public function __construct($exchange)
+    public function sendRequest($urlRequest)
     {
-        $this->exchange = $exchange;
-    }
-
-
-    public function sendRequest()
-    {
-        $response = Curl::get($this->exchange->url_request);
+        $response = Curl::get($urlRequest);
         // decode to normalize
-        return json_decode($response);
+
+        return json_decode($response)[0];
     }
 
 

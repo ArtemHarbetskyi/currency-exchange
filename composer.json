@@ -1,18 +1,19 @@
 {
-    "name": "artem-harbetskyi/currency-exchange",
-    "description": "NBU currency exchange",
-    "authors": [
-        {
-            "name": "ArtemHarbetskyi",
-            "email": "artem.kmcp@gmail.com"
-        }
-    ],
-    "autoload": {
-        "classmap": [],
-        "psr-4": {
-            "ArtemHarbetskyi\\": "src/"
-        }
-    },
-    "minimum-stability": "stable",
-    "require": {}
+  "name": "artem-harbetskyi/currency-exchange",
+  "version": "0.0.2",
+  "description": "NBU currency exchange",
+  "authors": [
+    {
+      "name": "ArtemHarbetskyi",
+      "email": "artem@harbetskyi.dev"
+    }
+  ],
+  "autoload": {
+    "classmap": [],
+    "psr-4": {
+      "ArtemHarbetskyi\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {}
 }
